@@ -1,0 +1,43 @@
+        Algorithm
+
+START
+
+Step 1: Read the number of subjects (N).
+
+Step 2: Read the subject names.
+
+Step 3: Read the conflict information between subjects.
+
+Step 4: Construct a graph using the subjects as vertices
+        and conflicts as edges.
+
+Step 5: Initialize all subjects as unassigned.
+
+Step 6: Set the initial number of examination slots.
+
+Step 7: Select an unassigned subject.
+
+Step 8: Assign an available examination slot to the subject.
+
+Step 9: Check whether the assigned slot creates a conflict
+        with any adjacent subject.
+
+Step 10: IF no conflict occurs,
+             Assign the slot and move to the next subject.
+
+         ELSE
+             Try another available slot.
+
+Step 11: IF no available slot is suitable,
+             Perform backtracking and change the
+             previous subject's slot.
+
+Step 12: Repeat the process until all subjects
+         are successfully assigned.
+
+Step 13: Generate and display the final examination
+         timetable.
+
+Step 14: Validate the timetable for conflicts.
+
+STOP

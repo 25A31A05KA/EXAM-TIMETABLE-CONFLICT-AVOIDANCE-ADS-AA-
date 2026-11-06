@@ -1,0 +1,8 @@
+Future Scope
+The project can be enhanced with additional features to make examination scheduling more efficient and practical.
+1. Automatic Subject Management: Allow administrators to add, update and delete subjects dynamically.
+2. Student Data Integration: Integrate student enrollment information to identify subject conflicts automatically.
+3. Room Allocation: Extend the system to allocate examination halls based on student strength and room capacity.
+4. Faculty Availability: Consider faculty availability while preparing examination schedules.
+5. Web-Based Application: Develop a web interface so students and administrators can access examination timetables online.
+6. Advanced Optimization: Implement improved graph-coloring techniques to handle large numbers of subjects efficiently.

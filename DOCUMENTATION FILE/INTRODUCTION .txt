@@ -1,0 +1,8 @@
+1. Introduction
+Exam Timetable Conflict Avoidance is a scheduling-based application designed to generate examination timetables without creating conflicts between subjects. In educational institutions, students often enroll in multiple subjects, making it necessary to schedule examinations carefully so that no student has to attend two examinations at the same time.
+
+Preparing examination timetables manually can be time-consuming and may lead to scheduling errors. This project uses Graph Coloring and Backtracking techniques to automate the examination scheduling process.
+
+In this system, each subject is represented as a vertex in a graph, and an edge between two vertices indicates that the corresponding subjects have common students. Different colors are assigned to adjacent vertices to represent different examination time slots.
+
+The main objective is to generate a conflict-free timetable while minimizing the number of examination slots.

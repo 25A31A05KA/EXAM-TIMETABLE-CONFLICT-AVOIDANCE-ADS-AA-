@@ -1,0 +1,11 @@
+Methodology
+The proposed system follows a graph-based scheduling approach to generate an examination timetable.
+
+The methodology consists of the following steps:
+1. Input Collection: Collect the list of subjects and information about conflicts between them.
+2. Graph Construction: Represent each subject as a vertex and every conflict as an edge.
+3. Graph Representation: Store the graph using an adjacency matrix or adjacency list.
+4. Slot Assignment: Apply the graph coloring technique to assign examination time slots.
+5. Backtracking: If a subject cannot be assigned to a particular slot without creating a conflict, try another available slot.
+6. Timetable Generation: Generate the final examination timetable after assigning valid slots to all subjects.
+7. Validation: Check whether any two conflicting subjects have been assigned the same time slot.

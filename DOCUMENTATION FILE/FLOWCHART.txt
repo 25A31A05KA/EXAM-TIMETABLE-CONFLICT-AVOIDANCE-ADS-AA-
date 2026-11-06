@@ -1,0 +1,53 @@
+
+      Flowchart
+           
+		   START
+               |
+               v
+     Enter Number of Subjects
+               |
+               v
+      Enter Subject Details
+               |
+               v
+    Enter Subject Conflict Data
+               |
+               v
+       Construct Conflict Graph
+               |
+               v
+      Initialize Exam Time Slots
+               |
+               v
+        Select a Subject
+               |
+               v
+       Assign an Available Slot
+               |
+               v
+       Check for Any Conflict
+               |
+          +----+----+
+          |         |
+         YES        NO
+          |         |
+          v         v
+     Try Another   Assign Slot
+         Slot          |
+          |            v
+          +------> Select Next Subject
+                       |
+                       v
+              Are All Subjects
+                  Assigned?
+                 /       \
+               NO         YES
+               |           |
+               v           v
+          Backtrack    Generate Final
+          if Needed     Timetable
+               |           |
+               +-----------+
+                           |
+                           v
+                          STOP

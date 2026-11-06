@@ -1,0 +1,6 @@
+Conclusion
+The Exam Timetable Conflict Avoidance project demonstrates the practical application of graph theory and backtracking algorithms in solving real-world scheduling problems. By representing subjects as vertices and conflicts as edges, the system uses graph coloring to assign examination time slots without conflicts.
+
+The backtracking technique helps explore different slot assignments and find a valid timetable while minimizing the number of required slots. This approach reduces manual effort, improves scheduling accuracy and provides an efficient solution for educational institutions.
+
+The project also provides a foundation for future improvements such as automatic student data integration, examination hall allocation and web-based timetable management.
