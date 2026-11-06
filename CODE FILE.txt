@@ -1,0 +1,129 @@
+# Exam Timetable Conflict Avoidance
+# Using Graph Coloring and Backtracking
+
+def is_safe(vertex, slot, graph, assigned):
+    for neighbour in graph[vertex]:
+        if neighbour in assigned and assigned[neighbour] == slot:
+            return False
+    return True
+
+
+def graph_coloring(graph, n, k, order, assigned, index=0, max_used=0):
+
+    # All subjects are successfully assigned
+    if index == n:
+        return True
+
+    vertex = order[index]
+
+    # Try available examination slots
+    for slot in range(1, min(k, max_used + 1) + 1):
+
+        if is_safe(vertex, slot, graph, assigned):
+
+            assigned[vertex] = slot
+
+            if graph_coloring(
+                graph, n, k, order, assigned,
+                index + 1, max(max_used, slot)
+            ):
+                return True
+
+            # Backtracking
+            del assigned[vertex]
+
+    return False
+
+
+def generate_timetable(subjects, graph):
+
+    n = len(subjects)
+
+    # Select highly connected subjects first
+    order = sorted(
+        range(n),
+        key=lambda v: len(graph[v]),
+        reverse=True
+    )
+
+    # Find minimum possible number of slots
+    for k in range(1, n + 1):
+
+        assigned = {}
+
+        if graph_coloring(graph, n, k, order, assigned):
+            return assigned, k
+
+    return None, 0
+
+
+# Main Program
+
+print("EXAM TIMETABLE CONFLICT AVOIDANCE")
+print("--------------------------------")
+
+# Enter subjects
+n = int(input("Enter number of subjects: "))
+
+subjects = []
+
+for i in range(n):
+    name = input(f"Enter subject {i + 1}: ")
+    subjects.append(name)
+
+# Create adjacency list
+graph = [set() for _ in range(n)]
+
+# Enter conflicts
+m = int(input("Enter number of subject conflicts: "))
+
+print("\nEnter conflicting subject numbers.")
+print("Example: 1 2 means subject 1 conflicts with subject 2.")
+
+for i in range(m):
+
+    u, v = map(int, input("Enter conflict: ").split())
+
+    if u < 1 or u > n or v < 1 or v > n or u == v:
+        print("Invalid conflict. Enter valid subject numbers.")
+        continue
+
+    graph[u - 1].add(v - 1)
+    graph[v - 1].add(u - 1)
+
+# Generate timetable
+assigned, total_slots = generate_timetable(subjects, graph)
+
+# Display result
+print("\n========== FINAL EXAM TIMETABLE ==========")
+
+if assigned is not None:
+
+    for slot in range(1, total_slots + 1):
+
+        print(f"\nTime Slot {slot}:")
+
+        for i in range(n):
+            if assigned[i] == slot:
+                print(" -", subjects[i])
+
+    print("\nTotal Subjects:", n)
+    print("Total Time Slots:", total_slots)
+
+    # Validate timetable
+    valid = True
+
+    for u in range(n):
+        for v in graph[u]:
+            if assigned[u] == assigned[v]:
+                valid = False
+
+    if valid:
+        print("Conflict Validation: PASSED")
+    else:
+        print("Conflict Validation: FAILED")
+
+else:
+    print("No valid timetable found.")
+
+print("\n=============== STOP ===============")
